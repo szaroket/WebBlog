@@ -46,3 +46,22 @@ Nice to do:
  
  Nice to have:
  Firebase
+
+# Envoiroment
+
+The whole envoiroment was setup with [conda](https://docs.conda.io/en/latest/). You can download and install minoconda from [this link](https://docs.conda.io/en/latest/miniconda.html).
+
+Creating envoiroment with python 3.9
+```
+conda create --name python python=3.9
+```
+
+To activate envoiroment:
+```
+conda activate python
+```
+
+Installing Django:
+```
+conda install django
+```
