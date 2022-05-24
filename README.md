@@ -49,6 +49,8 @@ Nice to do:
 
 # Envoiroment
 
+## Python
+
 The whole envoiroment was setup with [conda](https://docs.conda.io/en/latest/). You can download and install minoconda from [this link](https://docs.conda.io/en/latest/miniconda.html).
 
 Creating envoiroment with python 3.9
@@ -65,3 +67,10 @@ Installing Django:
 ```
 conda install django
 ```
+
+## PostgresSQL
+
+Install PostgresSQL from the official PostgreSQL [download section](https://www.postgresql.org/download/).
+You can follow [this instruction](https://www.enterprisedb.com/docs/supported-open-source/postgresql/installer/02_installing_postgresql_with_the_graphical_installation_wizard/01_invoking_the_graphical_installer/).
+
+After installation, we can open `pgAdmin` and create a new empty database - we can call it `blog-database`.
