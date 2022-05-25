@@ -3,12 +3,12 @@
 ## ToDo list
 
 #### Backend
-- [ ] Create a REST API that will allow to:
-  - [ ] Create a post
-  - [ ] Edit a post
-  - [ ] Delete a post
-  - [ ] List all posts
-  - [ ] Get single post
+- [X] Create a REST API that will allow to:
+  - [X] Create a post
+  - [X] Edit a post
+  - [X] Delete a post
+  - [X] List all posts
+  - [X] Get single post
 - [ ] Add test coverage
 - [ ] Prepare README:
   - [ ] Prepare README
@@ -85,4 +85,5 @@ After installation, we can open `pgAdmin` and create a new empty database - we c
 6. Migrate schema to a database by `python manage.py migrate` command.
 7. Create admin by `python manage.py createsuperuser` command.
 8. Create a Post model which will store posts from blog. This model was also added to `webblog/adming.py` so admin can create post from the administration site.
-9. Create first REST API: getting list of all posts.
+9. Create first REST API: getting list of all posts. 
+10. Create all API methods: create, edit, delete, list all, get single. I decided to have separate API for each request instead of using `RetrieveUpdateDestroyAPIView`. In my opinion, it is more clear that way.
