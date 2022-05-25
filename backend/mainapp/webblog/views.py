@@ -4,13 +4,26 @@ from .serializers import PostSerializer
 from .models import Post
 
 
-class GetListOfAllPosts(generics.ListAPIView):
+class ListOfAllPosts(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
-# Use RetrieveUpdateDestroyAPIView instead of RetrieveAPIView
-# it will support now CRUD
-class GetOnePost(generics.RetrieveUpdateDestroyAPIView):
+class PostDetails(generics.RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class DeletePost(generics.DestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class CreatePost(generics.CreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class UpdatePost(generics.UpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer

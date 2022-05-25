@@ -3,6 +3,9 @@ from webblog import views
 
 
 urlpatterns = [
-    path('posts/', views.GetListOfAllPosts.as_view()),
-    path('posts/<int:pk>/', views.GetOnePost.as_view())
+    path('posts/', views.ListOfAllPosts.as_view()),
+    path('post/<int:pk>/', views.PostDetails.as_view()),
+    path('post/delete/<int:pk>', views.DeletePost.as_view()),
+    path('post/create/', views.CreatePost.as_view()),
+    path('post/update/<int:pk>', views.UpdatePost.as_view())
 ]
