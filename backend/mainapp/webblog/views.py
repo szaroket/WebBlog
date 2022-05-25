@@ -4,7 +4,11 @@ from .serializers import PostSerializer
 from .models import Post
 
 
-class PostsList(generics.ListAPIView):
-    # see all the posts
+class GetListOfAllPosts(generics.ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class GetOnePost(generics.RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
