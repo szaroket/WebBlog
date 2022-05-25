@@ -1,0 +1,3 @@
+[run]
+source = .
+command_line = manage.py test
