@@ -9,6 +9,8 @@ class GetListOfAllPosts(generics.ListAPIView):
     serializer_class = PostSerializer
 
 
-class GetOnePost(generics.RetrieveAPIView):
+# Use RetrieveUpdateDestroyAPIView instead of RetrieveAPIView
+# it will support now CRUD
+class GetOnePost(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
