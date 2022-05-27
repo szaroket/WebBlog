@@ -1,39 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from "axios";
-import PostData from './types/PostData';
 import "bootstrap/dist/css/bootstrap.min.css";
-
-export const PostsList = () => {
-    const [posts, setPosts] = useState<Array<PostData>>([]);
-    useEffect(() => {
-        retrieveAllPosts();
-    }, []);
-    const retrieveAllPosts = () => {
-     axios
-        .get(`http://127.0.0.1:8000/posts`)
-        .then((response: any) => {
-            setPosts(response.data);
-            console.log(posts);
-        })
-        .catch((e) => {
-            console.error(e);
-        });
-    }
-
-    return (
-        <div>
-            {posts && posts.map((post, index) => (
-                <div className="card">
-                    <h5 className="card-header">{post.post_title}</h5>
-                    <div className="card-body">
-                        <p className="card-text">{post.post_content}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
-    )
-}
+import {PostsList} from './components/Posts'
 
 function App() {
   return (
