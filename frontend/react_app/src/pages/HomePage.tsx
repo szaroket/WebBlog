@@ -1,7 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {PostsList} from "../components/Posts";
-
+import PostsList from "../components/PostsList";
 
 const HomePage = () => {
     return (

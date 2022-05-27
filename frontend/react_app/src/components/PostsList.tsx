@@ -5,7 +5,7 @@ import PostData from '../types/PostData';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Card, Col, Row} from "react-bootstrap";
 
-export const PostsList = () => {
+const PostsList = () => {
     const [posts, setPosts] = useState<Array<PostData>>([]);
     useEffect(() => {
         retrieveAllPosts();
@@ -37,3 +37,5 @@ export const PostsList = () => {
         </Row>
     )
 }
+
+export default PostsList;
