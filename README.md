@@ -23,9 +23,11 @@ Nice to do:
   - [ ] Standard user should be able to view and list posts
 
 #### Frontend
-Blog should contain a list of all posts and a single post view.
-- [ ] Fetch data from the API
-- [ ] Send data to the API
+- [ ] Blog should contain a list of:
+  - [X] All posts 
+  - [ ] A single post view.
+- [X] Fetch data from the API
+- [X] Send data to the API
 - [ ] Prepare README
   - [ ] Explain local usage
   - [ ] Explain deployment steps
