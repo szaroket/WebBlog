@@ -1,25 +1,22 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "bootstrap/dist/css/bootstrap.min.css";
-import {PostsList} from './components/Posts'
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {mynavbar} from "./components/navbar";
+import AddPost from "./pages/AddPost";
+import HomePage from "./pages/HomePage";
 
 function App() {
-  return (
-    <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand">Web Blog</a>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <a className="nav-item nav-link active" href="/home">Home</a>
-                    <a className="nav-item nav-link" href="/add-post">Add Post</a>
-                </div>
-            </div>
-        </nav>
-        <div className="container">
-            {PostsList()}
+    return (
+        <div className="App">
+            <Router>
+                {mynavbar()}
+                <Routes>
+                    <Route path="/home" element={HomePage()}></Route>
+                    <Route path="/add-post" element={AddPost()}></Route>
+                </Routes>
+            </Router>
         </div>
-    </div>
-  );
+    );
 }
 
 export default App;
