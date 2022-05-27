@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
-import PostData from './types/Tutorial';
+import PostData from './types/PostData';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export const MenuList = () => {
+export const PostsList = () => {
     const [posts, setPosts] = useState<Array<PostData>>([]);
     useEffect(() => {
         retrieveAllPosts();
@@ -21,32 +22,15 @@ export const MenuList = () => {
     }
 
     return (
-        <div className="row justify-content-center">
-          <div className="col">
+        <div>
             {posts && posts.map((post, index) => (
-                <div className="card my-3 w-25 mx-auto">
-                  <div className="card-body">
-                    <h2 className="card-title font-weight-bold">{post.post_author}</h2>
-                    <h4 className="card-subtitle mb-2">{post.post_title}</h4>
-                    <p className="card-text">{post.post_content}</p>
-                  </div>
-                  <div className="card-footer">
-                    <div className="btn-group justify-content-around w-75 mb-1 " data-toggle="buttons">
-                      <span>
-                        <button className="btn btn-info">
-                          Update
-                        </button>
-                      </span>
-                      <span>
-                        <button className="btn btn-danger">
-                          Delete
-                        </button>
-                      </span>
+                <div className="card">
+                    <h5 className="card-header">{post.post_title}</h5>
+                    <div className="card-body">
+                        <p className="card-text">{post.post_content}</p>
                     </div>
-                  </div>
                 </div>
-              ))}
-          </div>
+            ))}
         </div>
     )
 }
@@ -54,14 +38,18 @@ export const MenuList = () => {
 function App() {
   return (
     <div className="App">
-      <nav className="navbar navbar-dark bg-dark">
-        <a href="/" className="navbar-brand">
-            Web Blog
-        </a>
-      </nav>
-      <div className="container m-10">
-        {MenuList()}
-      </div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a className="navbar-brand">Web Blog</a>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                    <a className="nav-item nav-link active" href="/home">Home</a>
+                    <a className="nav-item nav-link" href="/add-post">Add Post</a>
+                </div>
+            </div>
+        </nav>
+        <div className="container">
+            {PostsList()}
+        </div>
     </div>
   );
 }
