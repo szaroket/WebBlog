@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import PostData from '../types/PostData';
@@ -25,15 +25,15 @@ export const PostsList = () => {
     return (
         <Row>
             {posts && posts.map((post, index) => (
-            <Col className="col-4">
-            <Card key={index} className="card h-100">
-        <Card.Body>
-            <Card.Title>{post.post_title}</Card.Title>
-        <Card.Text>{post.post_content}</Card.Text>
-        </Card.Body>
-        </Card>
-        </Col>
-))}
-    </Row>
-)
+                <Col className="col-4">
+                    <Card key={index} className="card h-100">
+                        <Card.Body>
+                            <Card.Title>{post.post_title}</Card.Title>
+                            <Card.Text>{post.post_content}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            ))}
+        </Row>
+    )
 }
