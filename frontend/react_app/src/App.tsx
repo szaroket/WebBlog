@@ -5,6 +5,7 @@ import {mynavbar} from "./components/navbar";
 import AddPost from "./pages/AddPost";
 import HomePage from "./pages/HomePage";
 import DetailedPage from "./pages/DetailedPage";
+import './App.css'
 
 function App() {
     return (
