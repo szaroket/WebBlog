@@ -8,7 +8,7 @@ export const mynavbar = () => {
             <a className="navbar-brand">Web Blog</a>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    <Link to="/home" className="nav-item nav-link">Home</Link>
+                    <Link to="/" className="nav-item nav-link">Home</Link>
                     <Link to="/add-post" className="nav-item nav-link">Add Post</Link>
                 </div>
             </div>

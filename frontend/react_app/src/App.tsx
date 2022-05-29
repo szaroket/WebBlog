@@ -11,7 +11,7 @@ function App() {
             <Router>
                 {mynavbar()}
                 <Routes>
-                    <Route path="/home" element={HomePage()}></Route>
+                    <Route path="/" element={HomePage()}></Route>
                     <Route path="/add-post" element={AddPost()}></Route>
                 </Routes>
             </Router>
