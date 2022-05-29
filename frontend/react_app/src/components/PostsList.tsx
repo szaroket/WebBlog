@@ -5,6 +5,7 @@ import PostData from '../types/PostData';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import "./cards.css"
 
 const PostsList = () => {
     const [posts, setPosts] = useState<Array<PostData>>([]);
@@ -25,14 +26,22 @@ const PostsList = () => {
             });
     }
 
+    const cutPostIfTooMuchTest = (content: string) => {
+        let maxLength = 350;
+        if (content.length > maxLength) {
+            content = content.substring(0, maxLength) + "...";
+        }
+        return content
+    }
+
     return (
         <Row>
             {posts && posts.map((post, index) => (
-                <Col className="col-4">
-                    <Card key={index} className="card h-100">
-                        <Card.Body>
-                            <Card.Title>{post.post_title}</Card.Title>
-                            <Card.Text>{post.post_content}</Card.Text>
+                <Col className="col-4 mb-4">
+                    <Card key={index} className="card h-100 mt-3" style={{ borderRadius: "15px"}}>
+                        <Card.Body className="card-body">
+                            <Card.Title className="card-title">{post.post_title}</Card.Title>
+                            <Card.Text className="card-content">{cutPostIfTooMuchTest(post.post_content)}</Card.Text>
                             <Link to={`post/${post.post_slug}`} state={{...post}}>Read more</Link>
                         </Card.Body>
                     </Card>

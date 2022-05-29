@@ -1,0 +1,10 @@
+.card-title {
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 25px;
+}
+
+.card-content {
+    text-align: justify;
+    font-size: medium;
+}
