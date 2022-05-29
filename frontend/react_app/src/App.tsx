@@ -1,20 +1,20 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {mynavbar} from "./components/navbar";
 import AddPost from "./pages/AddPost";
 import HomePage from "./pages/HomePage";
+import DetailedPage from "./pages/DetailedPage";
 
 function App() {
     return (
         <div className="App">
-            <Router>
-                {mynavbar()}
-                <Routes>
-                    <Route path="/" element={HomePage()}></Route>
-                    <Route path="/add-post" element={AddPost()}></Route>
-                </Routes>
-            </Router>
+            {mynavbar()}
+            <Routes>
+                <Route path="/" element={HomePage()}></Route>
+                <Route path="/add-post" element={AddPost()}></Route>
+                <Route path="/post/*" element={DetailedPage()}></Route>
+            </Routes>
         </div>
     );
 }

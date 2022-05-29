@@ -4,12 +4,15 @@ import axios from "axios";
 import PostData from '../types/PostData';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Card, Col, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const PostsList = () => {
     const [posts, setPosts] = useState<Array<PostData>>([]);
+
     useEffect(() => {
         retrieveAllPosts();
     }, []);
+
     const retrieveAllPosts = () => {
         axios
             .get(`http://127.0.0.1:8000/posts`)
@@ -30,6 +33,7 @@ const PostsList = () => {
                         <Card.Body>
                             <Card.Title>{post.post_title}</Card.Title>
                             <Card.Text>{post.post_content}</Card.Text>
+                            <Link to={`post/${post.post_slug}`} state={{...post}}>Read more</Link>
                         </Card.Body>
                     </Card>
                 </Col>
