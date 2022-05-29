@@ -1,7 +1,8 @@
 export default interface PostData {
     id: number,
-    post_title: string,
     post_author: string,
     post_content: string,
-    post_slug: string
+    post_publish_date: string,
+    post_slug: string,
+    post_title: string
 }
