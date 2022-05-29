@@ -14,7 +14,7 @@ const AddPost = () => {
         return title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')
     }
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const value = e.target.value;
         setState({
             ...post,
@@ -41,34 +41,32 @@ const AddPost = () => {
     }
 
     return (
-        <Alert variant='primary'>
-            <Container fluid="md">
-                <Row className="align-items-lg-center">
-                    <Col>
-                        <Form onSubmit={submitPost}>
-                            <Form.Group controlId="formPostTitle">
-                                <Form.Label>Title of Post</Form.Label>
-                                <Form.Control name="title" onChange={handleChange} type="title"
-                                              placeholder="Enter title"/>
-                            </Form.Group>
-                            <Form.Group controlId="formPostAuthor">
-                                <Form.Label>Author</Form.Label>
-                                <Form.Control name="author" onChange={handleChange} type="author"
-                                              placeholder="Enter author's name"/>
-                            </Form.Group>
-                            <Form.Group controlId="formTextarea">
-                                <Form.Label>Your post</Form.Label>
-                                <Form.Control name="content" onChange={handleChange} as="textarea" rows={5} type="textarea"
-                                              placeholder="Write our post here..."/>
-                            </Form.Group>
-                            <Form.Group>
-                                <Button type="submit">Submit</Button>
-                            </Form.Group>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
-        </Alert>
+        <Container fluid="md">
+            <Row className="align-items-lg-center">
+                <Col>
+                    <Form onSubmit={submitPost}>
+                        <Form.Group controlId="formPostTitle">
+                            <Form.Label>Title of Post</Form.Label>
+                            <Form.Control name="title" onChange={handleChange} type="title"
+                                          placeholder="Enter title"/>
+                        </Form.Group>
+                        <Form.Group controlId="formPostAuthor">
+                            <Form.Label>Author</Form.Label>
+                            <Form.Control name="author" onChange={handleChange} type="author"
+                                          placeholder="Enter author's name"/>
+                        </Form.Group>
+                        <Form.Group controlId="formTextarea">
+                            <Form.Label>Your post</Form.Label>
+                            <Form.Control name="content" onChange={handleChange} as="textarea" rows={5} type="textarea"
+                                          placeholder="Write our post here..."/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Button type="submit">Submit</Button>
+                        </Form.Group>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
