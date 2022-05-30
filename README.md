@@ -17,15 +17,15 @@
 Nice to do:
 - [ ] Count post views, save it in the database and return in endpoint responses
 - [ ] Authorization
-- [ ] Swagger
+- [X] Swagger
 - [ ] Permissions:
   - [ ] Admin user should be able to create, edit and delete posts
   - [ ] Standard user should be able to view and list posts
 
 #### Frontend
-- [ ] Blog should contain a list of:
+- [X] Blog should contain a list of:
   - [X] All posts 
-  - [ ] A single post view.
+  - [X] A single post view.
 - [X] Fetch data from the API
 - [X] Send data to the API
 - [ ] Prepare README
@@ -36,7 +36,7 @@ Nice to do:
 - [ ] Count post views and display in the post view
 - [ ] Responsive design (mobile and tablet friendly) - can use MUI5
 - [ ] Authorization
-- [ ] Axios (HTTP requests)
+- [X] Axios (HTTP requests)
 - [ ] Permissions:
   - [ ] Admin user should be able to create, edit and delete posts
   - [ ] Standard user should be able to view and list posts
