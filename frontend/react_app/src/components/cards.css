@@ -11,6 +11,11 @@
     height: 210px;
 }
 
+.card-content-detail {
+    text-align: justify;
+    font-size: medium;
+}
+
 .read-more-button {
     justify-content: center;
     background-color: Transparent;
@@ -32,4 +37,8 @@
     background-color: rgb(122, 122, 122);
     color: white;
     border: 2px solid rgb(122, 122, 122);
+}
+
+.card-footer {
+    text-align: right;
 }
