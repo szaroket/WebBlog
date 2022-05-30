@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, Col, Container, Form, InputGroup, Row} from "react-bootstrap";
 import axios from "axios";
 import "./form.css"
+import {useNavigate} from "react-router-dom";
 
 const AddPost = () => {
     const [post, setState] = useState({
@@ -24,12 +25,13 @@ const AddPost = () => {
     };
 
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
 
     const submitPost = (e: any) => {
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
-            e.preventDefault()
-            e.stopPropagation()
+            e.preventDefault();
+            e.stopPropagation();
         }
         setValidated(true);
 
@@ -38,7 +40,7 @@ const AddPost = () => {
             post_content: post.content,
             post_author: post.author,
             post_slug: convertTitleToSlug(post.title)
-        }
+        };
         console.log(postData)
         axios.post("http://127.0.0.1:8000/post/create/", postData)
             .then((response: any) => {
@@ -47,6 +49,8 @@ const AddPost = () => {
             .catch((e) => {
                 console.error(e);
             });
+        navigate('/');
+        window.location.reload()
     }
 
     return (
@@ -78,7 +82,8 @@ const AddPost = () => {
                         <Form.Group controlId="formTextarea">
                             <Form.Label className="form-label">Post content</Form.Label>
                             <InputGroup hasValidation>
-                                <Form.Control name="content" onChange={handleChange} as="textarea" rows={15} type="textarea"
+                                <Form.Control name="content" onChange={handleChange} as="textarea" rows={15}
+                                              type="textarea"
                                               placeholder="Write our post here..." required/>
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a post content.
