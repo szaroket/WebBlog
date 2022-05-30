@@ -1,6 +1,22 @@
 # WebBlog
 
-## ToDo list
+The purpose of this task is to create an E2E experience of a Blog application.
+
+# Technologies
+Here is a list of technologies which should be used for this project:
+* Backend:
+  * Python (Django + DRF)
+* Frontend:
+  * Typescrip (React, minimal CSS - MUI5)
+* Database:
+  * PSQL
+
+Nice to have:
+* Firebase
+
+## ToDo 
+
+List of tasks which should be done for this project.
 
 #### Backend
 - [X] Create a REST API that will allow to:
@@ -41,21 +57,14 @@ Nice to do:
   - [ ] Admin user should be able to create, edit and delete posts
   - [ ] Standard user should be able to view and list posts
 
-# Technologies
- Backend -> Python (Django + DRF)
- Frontend -> Typescrip (React, minimal CSS - MUI5)
- Database -> PSQL
- 
- Nice to have:
- Firebase
 
-# Environment
+## Environment
 
-## Python
+### Python
 
-The whole environment was set up with [conda](https://docs.conda.io/en/latest/). You can download and install minoconda from [this link](https://docs.conda.io/en/latest/miniconda.html).
+The whole environment was set up with [conda](https://docs.conda.io/en/latest/) which can be downloaded and installed from [this link](https://docs.conda.io/en/latest/miniconda.html).
 
-Creating environment with python 3.9
+Creating environment with python 3.9:
 ```
 conda create --name python python=3.9
 ```
@@ -75,11 +84,17 @@ conda install django
 Install PostgresSQL from the official PostgreSQL [download section](https://www.postgresql.org/download/).
 You can follow [this instruction](https://www.enterprisedb.com/docs/supported-open-source/postgresql/installer/02_installing_postgresql_with_the_graphical_installation_wizard/01_invoking_the_graphical_installer/).
 
-After installation, we can open `pgAdmin` and create a new empty database - we can call it `blog-database`.
+After installation, open `pgAdmin` and create a new empty database - call it `blog-database`.
 
-# Deployment steps
+## How to run project locally
 
-1. As a first step, I prepared an environment. he whole environment was set up with [conda](https://docs.conda.io/en/latest/).
+TBA
+
+## Deployment steps
+
+### Backend
+
+1. As a first step, I prepared an environment. The whole environment was set up with [conda](https://docs.conda.io/en/latest/).
 2. Create Django project with `django-admin startproject mainapp` command.
 3. Create a new Django `webblog` app and add it in project settings (i.e. `mainapp/settings.py` file).
 4. Install PostgresSQL and create new database by pgAdmin.
@@ -87,5 +102,9 @@ After installation, we can open `pgAdmin` and create a new empty database - we c
 6. Migrate schema to a database by `python manage.py migrate` command.
 7. Create admin by `python manage.py createsuperuser` command.
 8. Create a Post model which will store posts from blog. This model was also added to `webblog/adming.py` so admin can create post from the administration site.
-9. Create first REST API: getting list of all posts. 
+9. Create first REST API: getting list of all posts.
 10. Create all API methods: create, edit, delete, list all, get single. I decided to have separate API for each request instead of using `RetrieveUpdateDestroyAPIView`. In my opinion, it is more clear that way.
+
+### Frontend
+
+TBA
