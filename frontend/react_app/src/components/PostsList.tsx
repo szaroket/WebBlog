@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import PostData from '../types/PostData';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Card, Col, Row} from "react-bootstrap";
+import {Button, Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import "./cards.css"
 
@@ -38,11 +38,12 @@ const PostsList = () => {
         <Row>
             {posts && posts.map((post, index) => (
                 <Col className="col-4 mb-4">
-                    <Card key={index} className="card h-100 mt-3" style={{ borderRadius: "15px"}}>
+                    <Card key={index} className="card h-100 mt-3" style={{borderRadius: "15px"}}>
                         <Card.Body className="card-body">
                             <Card.Title className="card-title">{post.post_title}</Card.Title>
                             <Card.Text className="card-content">{cutPostIfTooMuchTest(post.post_content)}</Card.Text>
-                            <Link to={`post/${post.post_slug}`} state={{...post}}>Read more</Link>
+                            <Link className="read-more-text" to={`post/${post.post_slug}`} state={{...post}}><Button
+                                className="read-more-button">Read more</Button></Link>
                         </Card.Body>
                     </Card>
                 </Col>

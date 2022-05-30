@@ -7,4 +7,29 @@
 .card-content {
     text-align: justify;
     font-size: medium;
+    overflow: hidden;
+    height: 210px;
+}
+
+.read-more-button {
+    justify-content: center;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    color: rgb(122, 122, 122);
+    border: 2px solid rgb(122, 122, 122);
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 3px;
+    float: right;
+    position: relative;
+}
+
+.read-more-button:hover {
+    background-color: rgb(122, 122, 122);
+    color: white;
+    border: 2px solid rgb(122, 122, 122);
 }
