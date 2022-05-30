@@ -7,8 +7,8 @@ from django.db import models
 class Post(models.Model):
     # Define attributes for blog posts
     # SlugField - used for generating valid URL using obtained data
-    post_slug = models.SlugField(max_length=100)
-    post_title = models.CharField(max_length=200)
+    post_slug = models.SlugField(max_length=100, unique=True)
+    post_title = models.CharField(max_length=200, unique=True)
     post_author = models.CharField(max_length=20)
     post_content = models.TextField()
     # Date is set to "now" when object is first created
