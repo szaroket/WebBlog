@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Container, Form, InputGroup, Row} from "react-bootstrap";
 import axios from "axios";
 import "./form.css"
 
@@ -23,8 +23,16 @@ const AddPost = () => {
         });
     };
 
+    const [validated, setValidated] = useState(false);
+
     const submitPost = (e: any) => {
-        e.preventDefault()
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+        setValidated(true);
+
         const postData = {
             post_title: post.title,
             post_content: post.content,
@@ -46,21 +54,36 @@ const AddPost = () => {
             <Row className="align-items-lg-center">
                 <Col className="form-border">
                     <h1 className="form-header">create your post</h1>
-                    <Form onSubmit={submitPost}>
+                    <Form noValidate validated={validated} onSubmit={submitPost}>
                         <Form.Group controlId="formPostTitle">
                             <Form.Label className="form-label">Title</Form.Label>
-                            <Form.Control name="title" onChange={handleChange} type="title"
-                                          placeholder="Enter title"/>
+                            <InputGroup hasValidation>
+                                <Form.Control name="title" onChange={handleChange} type="title"
+                                              placeholder="Enter title" required/>
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid title.
+                                </Form.Control.Feedback>
+                            </InputGroup>
                         </Form.Group>
                         <Form.Group controlId="formPostAuthor">
                             <Form.Label className="form-label">Author</Form.Label>
-                            <Form.Control name="author" onChange={handleChange} type="author"
-                                          placeholder="Enter author's name"/>
+                            <InputGroup hasValidation>
+                                <Form.Control name="author" onChange={handleChange} type="author"
+                                              placeholder="Enter author's name" required/>
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide an author.
+                                </Form.Control.Feedback>
+                            </InputGroup>
                         </Form.Group>
                         <Form.Group controlId="formTextarea">
                             <Form.Label className="form-label">Post content</Form.Label>
-                            <Form.Control name="content" onChange={handleChange} as="textarea" rows={15} type="textarea"
-                                          placeholder="Write our post here..."/>
+                            <InputGroup hasValidation>
+                                <Form.Control name="content" onChange={handleChange} as="textarea" rows={15} type="textarea"
+                                              placeholder="Write our post here..." required/>
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a post content.
+                                </Form.Control.Feedback>
+                            </InputGroup>
                         </Form.Group>
                         <Form.Group>
                             <Button type="submit" className="submit-button">Submit</Button>
