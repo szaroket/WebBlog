@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, InputGroup, Row} from "react-bootstrap";
 import axios from "axios";
 import "./form.css"
 import {useNavigate} from "react-router-dom";
 
 const AddPost = () => {
-    const [post, setState] = useState({
+    const [post, setPost] = useState({
         title: "",
         content: "",
         author: "",
@@ -16,41 +16,41 @@ const AddPost = () => {
         return title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')
     }
 
-    const handleChange = (e: any) => {
-        const value = e.target.value;
-        setState({
+    const handleChange = (event: any) => {
+        const value = event.target.value;
+        setPost({
             ...post,
-            [e.target.name]: value
+            [event.target.name]: value
         });
     };
 
     const [validated, setValidated] = useState(false);
     const navigate = useNavigate();
 
-    const submitPost = (e: any) => {
-        const form = e.currentTarget;
+    const submitPost = (event: any) => {
+        const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            const postData = {
+                post_title: post.title,
+                post_content: post.content,
+                post_author: post.author,
+                post_slug: convertTitleToSlug(post.title)
+            };
+            console.log(postData)
+            axios.post("http://127.0.0.1:8000/post/create/", postData)
+                .then((response: any) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+            navigate('/');
+            window.location.reload()
         }
         setValidated(true);
-
-        const postData = {
-            post_title: post.title,
-            post_content: post.content,
-            post_author: post.author,
-            post_slug: convertTitleToSlug(post.title)
-        };
-        console.log(postData)
-        axios.post("http://127.0.0.1:8000/post/create/", postData)
-            .then((response: any) => {
-                console.log(response);
-            })
-            .catch((e) => {
-                console.error(e);
-            });
-        navigate('/');
-        window.location.reload()
     }
 
     return (
