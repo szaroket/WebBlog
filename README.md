@@ -56,39 +56,73 @@ Nice to do:
 - [ ] Permissions:
   - [ ] Admin user should be able to create, edit and delete posts
   - [ ] Standard user should be able to view and list posts
+  
 
+## Running project locally
 
-## Environment
+In this section, you will find all the steps for preparing an environment to run the WebBlog project locally on your computer.
 
-### Python
+### Operating system
+
+Program was created on Windows 10 Home.
+
+### Environment
 
 The whole environment was set up with [conda](https://docs.conda.io/en/latest/) which can be downloaded and installed from [this link](https://docs.conda.io/en/latest/miniconda.html).
 
-Creating environment with python 3.9:
-```
-conda create --name python python=3.9
-```
+### Backend
 
-To activate environment:
-```
-conda activate python
-```
-
-Installing Django:
-```
-conda install django
-```
-
-## PostgresSQL
+#### PostgresSQL
 
 Install PostgresSQL from the official PostgreSQL [download section](https://www.postgresql.org/download/).
 You can follow [this instruction](https://www.enterprisedb.com/docs/supported-open-source/postgresql/installer/02_installing_postgresql_with_the_graphical_installation_wizard/01_invoking_the_graphical_installer/).
 
-After installation, open `pgAdmin` and create a new empty database - call it `blog-database`.
+:warning: If you will change any of the below names, the application will not work. You will have to change `DATABASES` properties in `backend/mainapp/mainapp/settings.py` file. 
 
-## How to run project locally
+After installation, open `pgAdmin` you have to add a new server and create a new empty database:
 
-TBA
+1. Log in to the PostgreSQL database server using pgAdmin.
+2. Go to the `Dashboard` tab. In the `Quick Link` section, click `Add New Server` to add a new connection.
+![img_3.png](assets/database1.png)
+3. In `General` tab, enter the name of server: PostgreSQL.
+![img_1.png](assets/database2.png)
+4. Select the `Connection` tab in the `Create-Server` window. Then, configure the connection as follows:
+   1. Host name/addres: localhost
+   2. Port: 5432
+   3. Maintenance database: `postgres`
+   4. Username: postgres
+   5. Password: test
+![img_2.png](assets/database3.png)
+5. Click on `Save` button.
+6. In your `PostgreSQL` server, right-click the Databases node and select Create > Database… menu item.
+![img.png](assets/database4.png)
+7. Enter the name of the database (`blog-database`) and select an owner (`postgres`) in the general tab.
+![img.png](assets/database5.png)
+8. Click on `Save` button.
+
+#### Python and Django
+
+To run this project, you have to install python and other necessary tools / libraries like: Django, djangorestframework, etc. 
+
+You can do it by following these steps:
+
+1. Clone this repo and go to the main folder (`WebBlog`) in your terminal.
+2. Run below command: it will create a conda environment with all dependencies. :warning: Installation can take a few minutes.
+  ```commandline
+  conda env create -f environment.yaml
+  ```
+
+#### Run backend
+
+To run backend server, you have to:
+1. Go to `backend/mainapp` in your terminal.
+2. Run this command:
+```commandline
+python manage.py runserver
+```
+3. Go to http://127.0.0.1:8000/docs/ page. You should see Swagger documentation.
+
+![img_4.png](assets/swagger.png)
 
 ## Deployment steps
 
