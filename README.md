@@ -26,9 +26,9 @@ List of tasks which should be done for this project.
   - [X] List all posts
   - [X] Get single post
 - [ ] Add test coverage
-- [ ] Prepare README:
-  - [ ] Prepare README
-  - [ ] Explain deployment steps
+- [#] Prepare README:
+  - [#] Prepare README
+  - [#] Explain deployment steps
 
 Nice to do:
 - [ ] Count post views, save it in the database and return in endpoint responses
@@ -44,9 +44,9 @@ Nice to do:
   - [X] A single post view.
 - [X] Fetch data from the API
 - [X] Send data to the API
-- [ ] Prepare README
-  - [ ] Explain local usage
-  - [ ] Explain deployment steps
+- [#] Prepare README
+  - [#] Explain local usage
+  - [#] Explain deployment steps
 
 Nice to do:
 - [ ] Count post views and display in the post view
@@ -173,4 +173,23 @@ In this section you can find information, what was implemented in the WebBlog pr
 
 ### Backend
 
+Simple API was implemented by using Django REST framework. Five actions in total are supported:
+  - Create a post (http://127.0.0.1:8000/post/create/)
+  - Edit a post (http://127.0.0.1:8000/post/update/<int:pk> where `<int:pk>` is an id number of post)
+  - Delete a post (http://127.0.0.1:8000/post/delete/<int:pk> where `<int:pk>` is an id number of post)
+  - List all posts (http://127.0.0.1:8000/posts/)
+  - Get single post (http://127.0.0.1:8000/post/<int:pk>/ where `<int:pk>` is an id number of post)
+
+There is also possible to go to `admin` page: http://127.0.0.1:8000/admin/
+
+Additionally, the Swagger documentation was created and is available on http://127.0.0.1:8000/docs/
+
 ### Frontend
+
+Simple Blog application was created by using React, TypeScript and CSS. Application operation is limited - currently only 3 activities are supported:
+1. The main page with all posts:
+![img.png](assets/main_page.png)
+2. A single post view:
+![img.png](assets/single_post.png)
+3. Adding new posts (form):
+![img_1.png](assets/add_post_form.png)
