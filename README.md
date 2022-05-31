@@ -45,9 +45,9 @@ List of tasks which should be done for this project.
   - [X] List all posts
   - [X] Get single post
 - [ ] Add test coverage
-- [#] Prepare README:
-  - [#] Prepare README
-  - [#] Explain deployment steps
+- [X] Prepare README:
+  - [X] Prepare README
+  - [X] Explain deployment steps
 
 Nice to do:
 - [ ] Count post views, save it in the database and return in endpoint responses
@@ -63,9 +63,9 @@ Nice to do:
   - [X] A single post view.
 - [X] Fetch data from the API
 - [X] Send data to the API
-- [#] Prepare README
-  - [#] Explain local usage
-  - [#] Explain deployment steps
+- [X] Prepare README
+  - [X] Explain local usage
+  - [X] Explain deployment steps
 
 Nice to do:
 - [ ] Count post views and display in the post view
@@ -128,9 +128,9 @@ You can do it by following these steps:
 
 1. Clone this repo and go to the main folder (`WebBlog`) in your terminal.
 2. Run below command: it will create a conda environment with all dependencies. :warning: Installation can take a few minutes.
-  ```commandline
-  conda env create -f environment.yaml
-  ```
+    ```commandline
+      conda env create -f environment.yaml
+    ```
 3. Change conda environment with below command:
     ```commandline
     test-env
