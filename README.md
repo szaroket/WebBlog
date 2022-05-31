@@ -104,7 +104,7 @@ After installation, open `pgAdmin` you have to add a new server and create a new
 1. Log in to the PostgreSQL database server using pgAdmin.
 2. Go to the `Dashboard` tab. In the `Quick Link` section, click `Add New Server` to add a new connection.
 ![img_3.png](assets/database1.png)
-3. In `General` tab, enter the name of server: PostgreSQL.
+3. In `General` tab, enter the name of server: PostgreSQL.    
 ![img_1.png](assets/database2.png)
 4. Select the `Connection` tab in the `Create-Server` window. Then, configure the connection as follows:
    1. Host name/addres: localhost
