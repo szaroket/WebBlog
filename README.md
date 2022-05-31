@@ -147,19 +147,30 @@ To run frontend server, you have to:
 
 ## Deployment steps
 
+1. As a first step, I prepared an environment. The whole environment was set up with [conda](https://docs.conda.io/en/latest/).
+2. Setting up Django project:
+   1. Create Django project with `django-admin startproject mainapp` command.
+   2. Create a new Django `webblog` app and add it in project settings (i.e. `mainapp/settings.py` file).
+3. Install PostgresSQL and create new database by pgAdmin.
+4. Connect PostgresSQL database with app by changing `DATABASES` in `mainapp/settings.py`.
+5. Migrate schema to a database by `python manage.py migrate` command.
+6. Create admin by `python manage.py createsuperuser` command.
+7. Create a `Post` model which will store posts from blog. This model was also added to `webblog/adming.py` so admin can create/update/delete posts from the administration site.
+8. Create first REST API: getting list of all posts.
+9. Create all API methods: create, edit, delete, list all, get single. I decided to have separate API for each request instead of using `RetrieveUpdateDestroyAPIView`. In my opinion, it is more clear that way (which is debatable).
+10. Add some basic tests for a `Post` model (1 test doesn't work because of problems with mock time).
+11. Start working on frontend. Implemented the main page with all posts view (connected to API by `axios`).
+12. Work on `Add post` page and menu. `Post page` was implemented by using `Form`.
+13. Work on single post view by using `useLocation`.
+14. Add basic CSS and improve the main page view (e.g. cutting post text).
+15. Add checks if user provided data to the form - if not, show some warnings. User will be also re-directed to the main page after adding post.
+16. Add "read more" button to each post on the main blog page.
+17. Create Swagger documentation.
+
+## Implementation
+
+In this section you can find information, what was implemented in the WebBlog project. 
+
 ### Backend
 
-1. As a first step, I prepared an environment. The whole environment was set up with [conda](https://docs.conda.io/en/latest/).
-2. Create Django project with `django-admin startproject mainapp` command.
-3. Create a new Django `webblog` app and add it in project settings (i.e. `mainapp/settings.py` file).
-4. Install PostgresSQL and create new database by pgAdmin.
-5. Connect PostgresSQL database with app by changing `DATABASES` in `mainapp/settings.py`.
-6. Migrate schema to a database by `python manage.py migrate` command.
-7. Create admin by `python manage.py createsuperuser` command.
-8. Create a Post model which will store posts from blog. This model was also added to `webblog/adming.py` so admin can create post from the administration site.
-9. Create first REST API: getting list of all posts.
-10. Create all API methods: create, edit, delete, list all, get single. I decided to have separate API for each request instead of using `RetrieveUpdateDestroyAPIView`. In my opinion, it is more clear that way.
-
 ### Frontend
-
-TBA
