@@ -2,7 +2,7 @@
 
 The purpose of this task is to create an E2E experience of a Blog application.
 
-# Technologies
+## Technologies
 Here is a list of technologies which should be used for this project:
 * Backend:
   * Python (Django + DRF)
@@ -18,7 +18,7 @@ Nice to have:
 
 List of tasks which should be done for this project.
 
-#### Backend
+### Backend
 - [X] Create a REST API that will allow to:
   - [X] Create a post
   - [X] Edit a post
@@ -38,7 +38,7 @@ Nice to do:
   - [ ] Admin user should be able to create, edit and delete posts
   - [ ] Standard user should be able to view and list posts
 
-#### Frontend
+### Frontend
 - [X] Blog should contain a list of:
   - [X] All posts 
   - [X] A single post view.
@@ -61,6 +61,7 @@ Nice to do:
 ## Running project locally
 
 In this section, you will find all the steps for preparing an environment to run the WebBlog project locally on your computer.
+Please remember that you should run frontend and backend server at the same time to be able to see a fully functioning application. 
 
 ### Operating system
 
@@ -77,7 +78,7 @@ The whole environment was set up with [conda](https://docs.conda.io/en/latest/) 
 Install PostgresSQL from the official PostgreSQL [download section](https://www.postgresql.org/download/).
 You can follow [this instruction](https://www.enterprisedb.com/docs/supported-open-source/postgresql/installer/02_installing_postgresql_with_the_graphical_installation_wizard/01_invoking_the_graphical_installer/).
 
-:warning: If you will change any of the below names, the application will not work. You will have to change `DATABASES` properties in `backend/mainapp/mainapp/settings.py` file. 
+:exclamation: If you will change any of the below names, the application will not work. You will have to change `DATABASES` properties in `backend/mainapp/mainapp/settings.py` file. :exclamation:
 
 After installation, open `pgAdmin` you have to add a new server and create a new empty database:
 
@@ -91,8 +92,8 @@ After installation, open `pgAdmin` you have to add a new server and create a new
    2. Port: 5432
    3. Maintenance database: `postgres`
    4. Username: postgres
-   5. Password: test
-![img_2.png](assets/database3.png)
+   5. Password: test     
+   ![img_2.png](assets/database3.png)
 5. Click on `Save` button.
 6. In your `PostgreSQL` server, right-click the Databases node and select Create > Database… menu item.
 ![img.png](assets/database4.png)
@@ -111,18 +112,38 @@ You can do it by following these steps:
   ```commandline
   conda env create -f environment.yaml
   ```
+3. Change conda environment with below command:
+    ```commandline
+    test-env
+    ```
 
-#### Run backend
+#### Run backend server
 
 To run backend server, you have to:
 1. Go to `backend/mainapp` in your terminal.
 2. Run this command:
-```commandline
-python manage.py runserver
-```
+    ```commandline
+    python manage.py runserver
+    ```
 3. Go to http://127.0.0.1:8000/docs/ page. You should see Swagger documentation.
 
 ![img_4.png](assets/swagger.png)
+
+### Frontend
+
+To run an application you have to install `nodejs` package. If the above steps for the backend have been performed, `nodejs` has been installed while creating a conda environment.
+
+#### Run frontend server
+
+To run frontend server, you have to:
+1. Go to `react_app` in your terminal.
+2. Run this command:
+    ```commandline
+    npm start
+    ```
+3. Go to http://localhost:3000/ page. Here is an example view (depends on the contents in the database).
+
+![img.png](assets/main_page.png)
 
 ## Deployment steps
 
