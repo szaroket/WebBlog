@@ -1,3 +1,22 @@
+- [WebBlog](#webblog)
+  * [Technologies](#technologies)
+  * [ToDo](#todo)
+    + [Backend](#backend)
+    + [Frontend](#frontend)
+  * [Running project locally](#running-project-locally)
+    + [Operating system](#operating-system)
+    + [Environment](#environment)
+    + [Backend](#backend-1)
+      - [PostgresSQL](#postgressql)
+      - [Python and Django](#python-and-django)
+      - [Run backend server](#run-backend-server)
+    + [Frontend](#frontend-1)
+      - [Run frontend server](#run-frontend-server)
+  * [Deployment steps](#deployment-steps)
+  * [Implementation](#implementation)
+    + [Backend](#backend-2)
+    + [Frontend](#frontend-2)
+
 # WebBlog
 
 The purpose of this task is to create an E2E experience of a Blog application.
